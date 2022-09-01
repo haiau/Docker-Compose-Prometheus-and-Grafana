@@ -33,7 +33,16 @@ scrape_configs:
     honor_labels: true
     static_configs:
       - targets: ['pushgateway:9091']
+  # itpc2
+  - job_name: 'nodeexporter_itpc2'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['itpc2:9300']
 
+  - job_name: 'cadvisor_itpc2'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['itpc2:8080']
 
 alerting:
   alertmanagers:
