@@ -14,35 +14,88 @@ rule_files:
 # A scrape configuration containing exactly one endpoint to scrape.
 scrape_configs:
   - job_name: 'nodeexporter'
-    scrape_interval: 5s
     static_configs:
       - targets: ['nodeexporter:9100']
-
   - job_name: 'cadvisor'
-    scrape_interval: 5s
     static_configs:
       - targets: ['cadvisor:8080']
-
   - job_name: 'prometheus'
-    scrape_interval: 10s
     static_configs:
       - targets: ['localhost:9090']
-
   - job_name: 'pushgateway'
-    scrape_interval: 10s
     honor_labels: true
     static_configs:
       - targets: ['pushgateway:9091']
-  # itpc2
-  - job_name: 'nodeexporter_itpc2'
-    scrape_interval: 5s
+  # pcct1
+  - job_name: 'nodeexporter_pcct1'
     static_configs:
-      - targets: ['itpc2:9300']
-
-  - job_name: 'cadvisor_itpc2'
-    scrape_interval: 5s
+      - targets: ['pcct1:9910']
+  - job_name: 'cadvisor_pcct1'
     static_configs:
-      - targets: ['itpc2:8080']
+      - targets: ['pcct1:9808']
+  # pcct2
+  - job_name: 'nodeexporter_pcct2'
+    static_configs:
+      - targets: ['pcct2:9910']
+  - job_name: 'cadvisor_pcct2'
+    static_configs:
+      - targets: ['pcct2:9808']
+  # pcct3
+  - job_name: 'nodeexporter_pcct3'
+    static_configs:
+      - targets: ['pcct3:9910']
+  - job_name: 'cadvisor_pcct3'
+    static_configs:
+      - targets: ['pcct3:9808']
+  # pcct4
+  - job_name: 'nodeexporter_pcct4'
+    static_configs:
+      - targets: ['pcct4:9910']
+  - job_name: 'cadvisor_pcct4'
+    static_configs:
+      - targets: ['pcct4:9808']
+  # pcst1
+  - job_name: 'nodeexporter_pcst1'
+    static_configs:
+      - targets: ['pcst1:9910']
+  - job_name: 'cadvisor_pcst1'
+    static_configs:
+      - targets: ['pcst1:9808']
+  # pcst2
+  - job_name: 'nodeexporter_pcst2'
+    static_configs:
+      - targets: ['pcst2:9910']
+  - job_name: 'cadvisor_pcst2'
+    static_configs:
+      - targets: ['pcst2:9808']
+  # pcst3
+  - job_name: 'nodeexporter_pcst3'
+    static_configs:
+      - targets: ['pcst3:9910']
+  - job_name: 'cadvisor_pcst3'
+    static_configs:
+      - targets: ['pcst3:9808']
+  # pcst4
+  - job_name: 'nodeexporter_pcst4'
+    static_configs:
+      - targets: ['pcst4:9910']
+  - job_name: 'cadvisor_pcst4'
+    static_configs:
+      - targets: ['pcst4:9808']
+  # pcst5
+  - job_name: 'nodeexporter_pcst5'
+    static_configs:
+      - targets: ['pcst5:9910']
+  - job_name: 'cadvisor_pcst5'
+    static_configs:
+      - targets: ['pcst5:9808']
+  # pcsd
+  - job_name: 'nodeexporter_pcsd'
+    static_configs:
+      - targets: ['pcsd:9910']
+  - job_name: 'cadvisor_pcsd'
+    static_configs:
+      - targets: ['pcsd:9808']
 
 alerting:
   alertmanagers:
