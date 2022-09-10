@@ -39,6 +39,15 @@ groups:
       summary: "Server storage is almost full"
       description: "Docker host storage usage is {{ humanize $value}}%. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
 
+  - alert: EcommerceHealthAlert
+    expr: (time() - container_last_seen{name="ecommerce-service", job="cadvisor_pcst2"}) > 30
+    for: 15s
+    labels:
+      severity: critical
+    annotations:
+      summary: Prometheus target missing with warmup time (instance {{ $labels.instance }})
+      description: "Allow a job time to start up (10 minutes) before alerting that it's down.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
 - name: containers
   rules:
   - alert: user_service_down
